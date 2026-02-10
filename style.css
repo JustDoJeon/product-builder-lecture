@@ -1,1 +1,283 @@
-/* Add styles here */
+/* Google Fonts Import - Removed from CSS as it's in HTML */
+
+/* Color Variables */
+:root {
+    --primary-color: #007bff; /* Bootstrap primary blue */
+    --secondary-color: #6c757d; /* Bootstrap secondary grey */
+    --text-color: #343a40; /* Dark grey for text */
+    --background-color: #f8f9fa; /* Light grey background */
+    --card-background: #ffffff; /* White card background */
+    --border-color: #e9ecef; /* Lighter border */
+    --heading-color: #212529; /* Darker heading */
+    --link-hover-color: #0056b3; /* Darker primary for hover */
+    --button-outline-color: #007bff; /* Primary for button outline */
+    --button-outline-hover-color: #0056b3;
+}
+
+body.dark-mode {
+    --primary-color: #66b3ff; /* Lighter blue for dark mode */
+    --secondary-color: #adb5bd; /* Muted grey for dark mode */
+    --text-color: #e0e0e0; /* Light grey for text */
+    --background-color: #2a2a2a; /* Dark background */
+    --card-background: #3b3b3b; /* Darker card background */
+    --border-color: #4f4f4f; /* Darker border */
+    --heading-color: #ffffff; /* White heading */
+    --link-hover-color: #a0d8ff; /* Lighter blue for hover */
+    --button-outline-color: #66b3ff;
+    --button-outline-hover-color: #a0d8ff;
+}
+
+/* General Body and Container Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', 'Roboto', sans-serif;
+    line-height: 1.8;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: 70px; /* Adjust for fixed navbar */
+}
+
+.container {
+    max-width: 960px; /* Slightly narrower for velog-like feel */
+    margin: auto;
+    overflow: hidden;
+    padding: 0 15px;
+}
+
+/* Navbar Adjustments */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    background-color: var(--card-background) !important; /* Override Bootstrap bg-light */
+}
+
+body.dark-mode .navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .navbar-brand {
+    color: var(--primary-color) !important;
+    font-weight: 700;
+    font-size: 1.6rem;
+}
+
+.navbar .nav-link {
+    color: var(--text-color) !important;
+    font-weight: 400;
+    margin-left: 15px;
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--border-color);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid var(--button-outline-color);
+    background-color: transparent;
+    color: var(--button-outline-color) !important;
+    transition: all 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: var(--button-outline-color);
+    color: var(--card-background) !important;
+}
+
+body.dark-mode .theme-toggle-button {
+    border-color: var(--button-outline-color);
+    color: var(--button-outline-color) !important;
+}
+
+body.dark-mode .theme-toggle-button:hover {
+    background-color: var(--button-outline-color);
+    color: var(--background-color) !important; /* In dark mode, text should be background color */
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+    /* border-bottom: 1px solid var(--border-color); */ /* Removed for cleaner look */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h1, h2, h3 {
+    color: var(--heading-color);
+    font-weight: 700;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.8rem;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* About/Strengths Text */
+.about p, .strengths p {
+    text-align: left; /* Align text left for better readability */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Project Experience */
+.project-item {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .project-item {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .project-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.project-item h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.project-item strong {
+    color: var(--secondary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    text-align: center;
+    padding: 25px 0;
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) { /* Adjust breakpoint for Bootstrap lg */
+    .navbar-collapse {
+        background-color: var(--card-background);
+        border-top: 1px solid var(--border-color);
+    }
+    .navbar-nav .nav-item {
+        margin-left: 0 !important;
+        border-bottom: 1px solid var(--border-color);
+    }
+    .navbar-nav .nav-item:last-child {
+        border-bottom: none;
+    }
+    .navbar-nav .nav-link, .theme-toggle-button {
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+    }
+    .theme-toggle-button {
+        border: none;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+    section {
+        padding: 40px 0;
+    }
+}
